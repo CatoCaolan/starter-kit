@@ -32,7 +32,7 @@ The canonical logs. Each file's own header names its writer, or the row partitio
 - `records/coordination.md`: work in flight, routing, loose ends.
 - `records/dispatch-ledger.md`: one row per ask, written before the dispatch.
 - `records/questions.md`: questions queued for the human.
-- `records/merge-log.md`: one row per merge or shipped artifact pass.
+- `records/merge-log.md`: one row per landed merge.
 - `records/wake-marks.md`: one row per wake, in the waking seat's hand.
 
 Dates are `YYYY-MM-DD`. Write only files you own or were handed in your dispatch.

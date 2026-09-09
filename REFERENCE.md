@@ -41,6 +41,7 @@ your-project/
 ## Keeping it honest over time
 
 - Run `python lint.py` before each work session or in CI. If a cap fails, trim. Never raise the cap.
+- The caps: 6,000 chars for a member file, 4,000 for `core/core.md`, 2,500 for a mode. Every one of these rides a boot, so the budget is a token budget.
 - Fold a lesson into an identity file only when a real failure taught a concrete rule.
 - Append-only logs (decisions, scars, merge-log) grow freely. Loaded identity files do not.
 - `lint.py` fails on a ledger with zero rows, so a fresh clone fails until setup writes the first rows.

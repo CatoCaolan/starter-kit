@@ -6,9 +6,10 @@ lint.py - enforce the orchestration kit's invariants mechanically.
 Identity files must stay small: every one of them rides every boot, so the
 size budget is a build failure rather than an intention.
 
-Checks: per-file size caps, the
+Checks: per-file size caps, every member declares its single writer, the
 records organ exists, no ledger has zero rows, a cap-margin advisory at 90%,
-record-age and retired-roster advisories, and a receipt line written per run.
+record-age and retired-roster advisories, a worst-case boot estimate, and a
+receipt line written per run.
 """
 import os, sys, glob, argparse, re, json
 from datetime import date, datetime
