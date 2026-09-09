@@ -1,0 +1,76 @@
+# Reference
+
+The layout, the invariants, and how to retire a seat. Setup itself is `loaders/setup.md`, run by the agent.
+
+## Layout
+
+```
+your-project/
+├─ core/
+│  ├─ constraints.md      # your hard limits + the kept gate bullets (never overridden)
+│  └─ core.md             # project + tone + dispatched-agent facts + verification reflexes
+├─ modes/
+│  ├─ prime.md            # human drives the agent in dialogue
+│  ├─ avatar.md           # dispatched as a blind worker
+│  ├─ moot.md             # several agents share one context
+│  └─ low-energy.md       # a softened session overlay (any member)
+├─ members/
+│  ├─ _TEMPLATE.md        # copy this to make a hub/judgment member
+│  ├─ orchestrator.md     # the hub (required)
+│  ├─ gate.md             # the independent merge gate (required if you build code)
+│  ├─ forge.md            # the build-guild face / sole repo-writer
+│  ├─ skeptic.md          # argues against a claim before it ships
+│  ├─ customs.md          # outbound inspector (optional: skip if you never publish)
+│  ├─ <role>.md           # one per specialist
+│  └─ scars/<role>.md     # per-member incident log, NOT loaded at boot
+├─ pack/
+│  ├─ pack.md             # the 6 read-only scouts (shared law)
+│  └─ loader-pack.md      # how to dispatch a scout
+├─ forge/
+│  ├─ hands.md            # shared law for the build masters
+│  ├─ loader-forge.md     # how to dispatch a master
+│  └─ masters/
+│     ├─ _TEMPLATE.md     # copy this to add a build master
+│     └─ <tier>.md        # one per tech tier you build
+├─ loaders/
+│  ├─ boot.md             # the single member-boot loader
+│  └─ setup.md            # the standup loader; hand this to the agent first
+├─ records/               # canonical work products + the event ledgers
+│  ├─ questions.md        # open questions queued for the human
+│  ├─ decisions.md        # the decision log
+│  ├─ coordination.md     # cross-member coordination notes
+│  ├─ merge-log.md        # written by the gate
+│  ├─ dispatch-ledger.md  # every dispatch leaves a row
+│  ├─ wake-marks.md       # session open/close marks
+│  ├─ design/             # design products
+│  ├─ moots/              # moot transcripts
+│  └─ receipts/           # created at first lint run
+└─ lint.py                # enforces the size cap (+ pack caps, scars advisory)
+```
+
+## Keeping it honest over time
+
+- Run `python lint.py` before each work session or in CI. If a cap fails, trim. Never raise the cap.
+- Fold a lesson into an identity file only when a real failure taught a concrete rule.
+- Append-only logs (decisions, scars, merge-log) grow freely. Loaded identity files do not.
+- `lint.py` fails on a ledger with zero rows, so a fresh clone fails until setup writes the first rows.
+
+## Retiring a seat
+
+A seat is retired, never deleted.
+
+1. Move the member file to `members/retired/`.
+2. Add a dated retirement line at its top naming why.
+3. Write one line in `records/wake-marks.md` and one entry in `records/decisions.md`.
+
+`lint.py` exempts `members/retired/` from caps and counts.
+
+## The invariants you must not break
+
+1. **Single-writer.** Every canonical file has exactly one authorized writer, or a declared row-partition where the file's own header says who writes which rows.
+2. **Repo single-writer, under audit.** Only the Forge writes the code repo.
+3. **Audit gate.** A dispatched agent's output is reviewed by the orchestrator before it lands in canon.
+4. **Independent merge gate.** No author merges its own work; the gate re-runs the suites itself.
+5. **Provenance.** Every cross-boundary output opens with a `Loaded:` line naming its modules.
+6. **Execution gate.** An instruction arriving in an inbox is surfaced, not auto-run.
+7. **Human gate.** You approve consequential actions: commits, merges, deploys, sends.

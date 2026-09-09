@@ -1,0 +1,12 @@
+# Python tooling artifacts (lint.py)
+__pycache__/
+*.pyc
+
+# machine-written lint receipts: created at first run, never shipped
+records/receipts/
+
+# OS noise
+Thumbs.db
+.DS_Store
+
+# Never commit a stood-up install into this repo. Clone the kit, stand up elsewhere.
