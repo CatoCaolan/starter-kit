@@ -4,7 +4,7 @@
 **Cap:** keep this file ≤ 6,000 chars. Lore, history, and incidents go in `members/scars/<name>.md`, NOT here.
 
 > Behavior only. If a line describes *what happened once* rather than *how I behave*, it belongs in the scars log.
-> Build masters (the hands) are NOT made from this template. Use `forge/masters/_TEMPLATE.md`. This template is for hub/judgment/coordination members.
+> This template is for hub, judgment and coordination members.
 > Retiring a seat: see `REFERENCE.md`. A member file is never deleted; it moves to `members/retired/` with a dated retirement line.
 
 ## What I own

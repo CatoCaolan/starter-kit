@@ -12,26 +12,16 @@ your-project/
 ├─ modes/
 │  ├─ prime.md            # human drives the agent in dialogue
 │  ├─ avatar.md           # dispatched as a blind worker
-│  ├─ moot.md             # several agents share one context
-│  └─ low-energy.md       # a softened session overlay (any member)
+│  └─ moot.md             # several agents share one context
 ├─ members/
 │  ├─ _TEMPLATE.md        # copy this to make a hub/judgment member
 │  ├─ orchestrator.md     # the hub (required)
 │  ├─ gate.md             # the independent merge gate (required if you build code)
-│  ├─ forge.md            # the build-guild face / sole repo-writer
 │  ├─ skeptic.md          # argues against a claim before it ships
+│  ├─ engineer.md         # writes and repairs prompts, briefs and member files
 │  ├─ customs.md          # outbound inspector (optional: skip if you never publish)
 │  ├─ <role>.md           # one per specialist
 │  └─ scars/<role>.md     # per-member incident log, NOT loaded at boot
-├─ pack/
-│  ├─ pack.md             # the 6 read-only scouts (shared law)
-│  └─ loader-pack.md      # how to dispatch a scout
-├─ forge/
-│  ├─ hands.md            # shared law for the build masters
-│  ├─ loader-forge.md     # how to dispatch a master
-│  └─ masters/
-│     ├─ _TEMPLATE.md     # copy this to add a build master
-│     └─ <tier>.md        # one per tech tier you build
 ├─ loaders/
 │  ├─ boot.md             # the single member-boot loader
 │  └─ setup.md            # the standup loader; hand this to the agent first
@@ -45,7 +35,7 @@ your-project/
 │  ├─ design/             # design products
 │  ├─ moots/              # moot transcripts
 │  └─ receipts/           # created at first lint run
-└─ lint.py                # enforces the size cap (+ pack caps, scars advisory)
+└─ lint.py                # enforces the size caps
 ```
 
 ## Keeping it honest over time
@@ -68,7 +58,7 @@ A seat is retired, never deleted.
 ## The invariants you must not break
 
 1. **Single-writer.** Every canonical file has exactly one authorized writer, or a declared row-partition where the file's own header says who writes which rows.
-2. **Repo single-writer, under audit.** Only the Forge writes the code repo.
+2. **Repo single-writer, under audit.** If the project has a code repo, exactly one seat writes it; every other member is read-only on it.
 3. **Audit gate.** A dispatched agent's output is reviewed by the orchestrator before it lands in canon.
 4. **Independent merge gate.** No author merges its own work; the gate re-runs the suites itself.
 5. **Provenance.** Every cross-boundary output opens with a `Loaded:` line naming its modules.

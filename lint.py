@@ -6,15 +6,14 @@ lint.py - enforce the orchestration kit's invariants mechanically.
 Identity files must stay small: every one of them rides every boot, so the
 size budget is a build failure rather than an intention.
 
-Checks: per-file size caps, guild family-law caps, per-master caps, the
+Checks: per-file size caps, the
 records organ exists, no ledger has zero rows, a cap-margin advisory at 90%,
 record-age and retired-roster advisories, and a receipt line written per run.
 """
 import os, sys, glob, argparse, re, json
 from datetime import date, datetime
 
-DEFAULTS = dict(cap=6000, core_cap=4000, mode_cap=2500, pack_cap=8000,
-                master_cap=2500)
+DEFAULTS = dict(cap=6000, core_cap=4000, mode_cap=2500)
 
 def chars(path):
     with open(path, encoding="utf-8") as f:
@@ -60,30 +59,6 @@ def main():
             capped.append((rel(p), n, cap))
             if n > cap:
                 problems.append(f"OVER CAP  {rel(p)}: {n} chars (cap {cap}).")
-
-    # 3. Guild family-law files (loaded per-dispatch, not per-boot) get a looser cap.
-    for r in ("pack/pack.md", "forge/hands.md"):
-        p = os.path.join(root, *r.split("/"))
-        if os.path.exists(p):
-            checked += 1
-            n = chars(p)
-            capped.append((r, n, DEFAULTS["pack_cap"]))
-            if n > DEFAULTS["pack_cap"]:
-                problems.append(f"OVER CAP  {r}: {n} chars (pack cap {DEFAULTS['pack_cap']}). "
-                                f"Shared law only; push specialization into the masters.")
-
-    # 3b. Forge masters ride one per dispatch on top of family law; each stays
-    #     slim (Owns / Does NOT own / Seam / Floor, invariants cited not restated).
-    #     The '_'-prefixed template is exempt, as elsewhere.
-    for p in glob.glob(os.path.join(root, "forge", "masters", "*.md")):
-        if os.path.basename(p).startswith("_"):
-            continue
-        checked += 1
-        n = chars(p)
-        capped.append((rel(p), n, DEFAULTS["master_cap"]))
-        if n > DEFAULTS["master_cap"]:
-            problems.append(f"OVER CAP  {rel(p)}: {n} chars (master cap "
-                            f"{DEFAULTS['master_cap']}). Cite family law; don't restate it.")
 
     # 4. Cap-margin advisory (never fails): name any capped file at 90% or more
     #    of its budget, so a file nearing its cap is visible before it breaks.
