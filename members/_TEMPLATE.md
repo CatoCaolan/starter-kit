@@ -20,7 +20,7 @@
 - <Other member> owns X; I own Y; the handoff is Z.
 
 ## Tone latitude (optional)
-- <any scope-granted override of the core tone floor; omit if none. The cognitive-accessibility floor still holds.>
+- <any scope-granted override of the tone floor in `core/core.md`; omit if none>
 
 ## Dispatch slice (what a dispatch to me must carry)
 - <the specific context this member needs injected when run as a blind worker>

@@ -61,14 +61,14 @@ def main():
             if n > cap:
                 problems.append(f"OVER CAP  {rel(p)}: {n} chars (cap {cap}).")
 
-    # 4. Cap-margin advisory (never fails): name any capped file at 90% or more
+    # 3. Cap-margin advisory (never fails): name any capped file at 90% or more
     #    of its budget, so a file nearing its cap is visible before it breaks.
     for r, n, cap in capped:
         if cap and n >= 0.9 * cap:
             notes.append(f"cap margin: {r} at {n}/{cap} chars "
                          f"({100 * n // cap}% of cap).")
 
-    # 5. Every member needs a single-writer 'Owns' line (single-writer invariant).
+    # 4. Every member needs a single-writer 'Owns' line (single-writer invariant).
     for p in members():
         with open(p, encoding="utf-8") as f:
             body = f.read().lower()
@@ -76,7 +76,7 @@ def main():
             problems.append(f"NO OWNER  {rel(p)}: "
                             f"missing an 'Owns (single-writer)' declaration.")
 
-    # 6. The records organ: these six files must exist.
+    # 5. The records organ: these six files must exist.
     for r in ("records/wake-marks.md", "records/decisions.md",
               "records/dispatch-ledger.md", "records/merge-log.md",
               "records/questions.md", "records/coordination.md"):
@@ -87,7 +87,7 @@ def main():
             problems.append(f"MISSING ORGAN  {r}: a 1.0.0 tree carries the records "
                             f"organ. Fix: create the missing records file.")
 
-    # 6b. The zero-rows check: the ledgers ship EMPTY (headers only); setup's
+    # 5b. The zero-rows check: the ledgers ship EMPTY (headers only); setup's
     #     first-rows step writes each ledger's first row, so this check is what
     #     makes that step mechanically non-optional. A ledger that exists with
     #     no data row at all fails. A data row is an ISO-dated line (bulleted
@@ -113,7 +113,7 @@ def main():
                             f"history can. If the install is not under version "
                             f"control, it cannot tell either.")
 
-    # 7. Advisory (never fails): the scars files are unbounded by design.
+    # 6. Advisory (never fails): the scars files are unbounded by design.
     shelf = 0
     for d in (os.path.join(root, "members", "scars"),):
         shelf += sum(chars(p) for p in glob.glob(os.path.join(d, "*.md")))
@@ -121,7 +121,7 @@ def main():
         notes.append(f"scars shelf ≈ {shelf} chars across the read-on-demand files "
                      f"(unbounded by design; just keep an eye on it).")
 
-    # 8. Advisories (never fail): how stale are the living records? ISO dates
+    # 7. Advisories (never fail): how stale are the living records? ISO dates
     #    sort lexically, so the max IS the latest row. Rows live at line start,
     #    bare or bulleted (the log ledgers), or as the first cell of a table
     #    row (wake-marks). And if a retired roster exists, keep its size visible too.
@@ -149,7 +149,7 @@ def main():
         notes.append(f"members/retired/: {len(retired)} retired member file(s) "
                      f"(exempt from the cap and owns checks).")
 
-    # 9. Estimate the worst-case boot cost so the number is always visible.
+    # 8. Estimate the worst-case boot cost so the number is always visible.
     def biggest(sub, exclude=()):
         files = [p for p in glob.glob(os.path.join(root, sub, "*.md"))
                  if not os.path.basename(p).startswith("_")
@@ -165,7 +165,7 @@ def main():
     for n in notes:
         print("  note: " + n)
 
-    # 10. The receipts law's live demonstration: every run appends its own
+    # 9. The receipts law's live demonstration: every run appends its own
     #     receipt line, naming the files it actually checked. A failed write
     #     warns and never alters the lint verdict.
     verdict = "FAIL" if problems else "OK"

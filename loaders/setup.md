@@ -15,7 +15,7 @@ Ask these. Do not guess an answer, and do not proceed on a blank.
 1. Project name, and a one-paragraph purpose.
 2. Stack and languages, and any hard constraints (security, no production access, and the like).
 3. Do you build code in this project? If yes: the repo path, the test command, and the branch merges land on.
-4. Do you publish or send anything outbound? (Decides whether `members/customs.md` is wired into the flow or left dormant.)
+4. Do you publish anything outbound, or take in material from outside the project? (Decides whether `members/customs.md` is wired into the flow or left dormant.)
 5. Will you be writing prompts, dispatch briefs, or new member files as you go? (Decides whether `members/engineer.md` is wired into the flow or left dormant.)
 6. The specialist roles you want, one member each, by name and a one-line scope.
 
@@ -39,7 +39,7 @@ Summarize every answer in a short list and ask the human to confirm or correct i
 4. **If building code**: record the repo path, test command, and target branch in `core/core.md` so every seat can reach them, and keep `members/gate.md` as the seat that reviews and lands work it did not author.
 5. **Dormant seats**: a seat the human does not need stays in place and unused; other files cite it and deleting it breaks those references. Say in your setup report which seats are dormant. If the engineer is dormant, the human is the writer of `members/*.md`.
 6. **Directories**: create `records/design/`, `records/moots/` and `members/scars/`. Other files reference all three; none ships.
-7. **First ledger rows**: write one row, dated today, in each of `records/wake-marks.md`, `records/decisions.md`, `records/dispatch-ledger.md`, `records/merge-log.md`, `records/coordination.md`.
+7. **First ledger rows**: write one row, dated today, in `records/wake-marks.md`, `records/decisions.md` and `records/coordination.md`, recording the standup itself. `records/dispatch-ledger.md` and `records/merge-log.md` get their first row from the seat that owns them, on its first dispatch or merge; write a dated `setup, no rows yet` line in each so the linter passes and the ledger is not silently empty.
 
 ## 5. Lint
 

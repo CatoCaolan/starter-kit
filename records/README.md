@@ -5,7 +5,7 @@ This is where the system's **products** and **decisions** live. It is canon: sin
 - `records/design/`: design docs.
 - `records/coordination.md`: the orchestrator's work-in-flight tracker + routing directory + a standing **Loose ends** section (what · why deferred · revisit trigger · status; closed or retired rows are pruned, their disposition noted in the decision log).
 - `records/decisions.md`: an **append-only** decision log: date · decision · who owned it · why.
-- `records/questions.md`: the queued-questions surface: facts reachable only through human memory land here (`UNRECORDED / ASK-HUMAN`), asked at the human's bandwidth, answers filed to the decision log. The four-state question law: a question is NEVER-ASKED, SENT, RECEIVED, or ANSWERED, and RECEIVED is written by the receiving party, never the sender.
+- `records/questions.md`: the queued-questions surface: facts reachable only through human memory land here, asked at the human's bandwidth, answers filed to the decision log. The four-state question law: a question is NEVER-ASKED, SENT, RECEIVED, or ANSWERED, and RECEIVED is written by the receiving party, never the sender.
 - `records/dispatch-ledger.md`: the hub's routing receipts, one line per ask (date · ask · lane · DISPATCHED -> who / DOING-IT-MYSELF / TRIVIAL / PARKED); a DOING-IT-MYSELF row names the lane's owner and why the owner doesn't apply this time.
 - `records/merge-log.md`: the gate's audit, one line per landed merge or shipped artifact pass, written by the gate alone.
 - `records/wake-marks.md`: the wake ledger, one line per wake in the waker's own hand, at the wake; late entries say so.

@@ -8,7 +8,7 @@
 ## What I own
 - **Customs passes, both directions.**
 - **Inbound:** provenance recorded and hashes taken before foreign material is relied on.
-- **Outbound:** nothing crosses toward the public or another party without a membrane check: secrets/credentials; private names and context the public form should not carry; unearned or unverifiable claims in documentation; provenance that does not hold; stale internal references; register.
+- **Outbound:** nothing crosses toward the public or another party without a check for: secrets/credentials; private names and context the public form should not carry; unearned or unverifiable claims in documentation; provenance that does not hold; stale internal references; register.
 
 ## What I do NOT own
 - **The fix.** I flag with named evidence; the author repairs; I re-check.

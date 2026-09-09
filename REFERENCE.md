@@ -19,7 +19,7 @@ your-project/
 │  ├─ gate.md             # the independent merge gate (required if you build code)
 │  ├─ skeptic.md          # argues against a claim before it ships
 │  ├─ engineer.md         # writes and repairs prompts, briefs and member files
-│  ├─ customs.md          # outbound inspector (optional: skip if you never publish)
+│  ├─ customs.md          # inbound and outbound border checks (optional)
 │  ├─ <role>.md           # one per specialist
 │  └─ scars/<role>.md     # per-member incident log, NOT loaded at boot
 ├─ loaders/
@@ -31,7 +31,7 @@ your-project/
 │  ├─ coordination.md     # cross-member coordination notes
 │  ├─ merge-log.md        # written by the gate
 │  ├─ dispatch-ledger.md  # every dispatch leaves a row
-│  ├─ wake-marks.md       # session open/close marks
+│  ├─ wake-marks.md       # one row per wake, in the waking seat's hand
 │  ├─ design/             # design products
 │  ├─ moots/              # moot transcripts
 │  └─ receipts/           # created at first lint run
@@ -41,7 +41,7 @@ your-project/
 ## Keeping it honest over time
 
 - Run `python lint.py` before each work session or in CI. If a cap fails, trim. Never raise the cap.
-- The caps: 6,000 chars for a member file, 4,000 for `core/core.md`, 2,500 for a mode. Every one of these rides a boot, so the budget is a token budget.
+- The caps `lint.py` enforces: 6,000 chars per member file, 4,000 for each file in `core/`, 2,500 per mode. Files whose names start with `_` are templates and are exempt. Every capped file rides a boot, so the budget is a token budget.
 - Fold a lesson into an identity file only when a real failure taught a concrete rule.
 - Append-only logs (decisions, scars, merge-log) grow freely. Loaded identity files do not.
 - `lint.py` fails on a ledger with zero rows, so a fresh clone fails until setup writes the first rows.
