@@ -8,6 +8,11 @@ A portable multi-agent orchestration layer: a roster of specialized agents compo
 2. Start an agent session in it.
 3. Tell the agent: **"Read `loaders/setup.md` and follow it."**
 
+Step 2, concretely:
+
+- **Claude desktop app:** open Projects, create one, add this folder to it, then start a chat in that project.
+- **Claude Code or a terminal agent:** `cd` into this folder and start a session there.
+
 The agent interviews you, fills in the project files, builds your roster, and stops for your approval.
 
 ## Requirements

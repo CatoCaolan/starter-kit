@@ -10,16 +10,19 @@ Read `core/constraints.md`, `core/core.md`, and `members/_TEMPLATE.md`. That is 
 
 ## 2. Interview the human
 
-Ask these. Do not guess an answer, and do not proceed on a blank.
+Ask these. Do not guess an answer and do not proceed on a blank.
+
+"None", "not applicable" and "I do not know yet" are complete answers. Record what the human said and move on; do not re-ask, and do not leave the question open.
 
 1. Project name, and a one-paragraph purpose.
 2. Stack and languages, and any hard constraints (security, no production access, and the like).
 3. Do you build code in this project? If yes: the repo path, the test command, and the branch merges land on.
-4. Do you publish anything outbound, or take in material from outside the project? (Decides whether `members/customs.md` is wired into the flow or left dormant.)
-5. Will you be writing prompts, dispatch briefs, or new member files as you go? (Decides whether `members/engineer.md` is wired into the flow or left dormant.)
-6. The specialist roles you want, one member each, by name and a one-line scope.
+4. What may the agents reach, and how far? Ask for the permission shape rather than a folder list: where they may read, where they may write, and what they may never change or delete.
+5. Do you publish anything outbound, or take in material from outside the project? (Decides whether `members/customs.md` is wired into the flow or left dormant.)
+6. Will you be writing prompts, dispatch briefs, or new member files as you go? (Decides whether `members/engineer.md` is wired into the flow or left dormant.)
+7. The specialist roles you want, one member each, by name and a one-line scope. Names are the human's to pick, and most people pick them easily. One rule: keep the names clear of the project's own subject matter, so an agent's name never collides with the vocabulary of the work.
 
-Then, for **each** specialist named in question 6, ask five follow-ups. A one-line scope cannot fill a member file, and a member file with invented scope edges is worse than no member.
+Then, for **each** specialist named in question 7, ask five follow-ups. A one-line scope cannot fill a member file, and a member file with invented scope edges is worse than no member.
 
 - What files or areas does this seat own outright, that nobody else may write?
 - What is explicitly **not** theirs, that they should route elsewhere?
@@ -52,3 +55,11 @@ A fresh clone fails this check with five empty-ledger errors. That is expected a
 Report what you wrote in each file, the roster you built, the directories you created, and the linter result. Then stop. Do not begin project work and do not commit until the human approves.
 
 Tell the human this, in your own words: from here on, a work session starts by handing you `loaders/boot.md` with two parameters, which member and which mode.
+
+## 7. First task
+
+Do not stop at a stood-up kit. Ask the human for one small real thing to do right now, and do it with them.
+
+Ask for something they actually need, finishable in a sitting: an email, a short document, a statement of purpose, a summary of something they already have. Not a test, and not a demonstration.
+
+Then run it the way the kit is meant to run: name the lane, dispatch or do it yourself, and write the row. The point is that they watch the loop work once on their own material before you leave.

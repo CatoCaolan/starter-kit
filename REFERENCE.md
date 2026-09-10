@@ -38,6 +38,12 @@ your-project/
 └─ lint.py                # enforces the size caps
 ```
 
+## One install, many projects
+
+Run one install across all your work, with one hub. Keep separate projects as separate areas inside it rather than separate copies of the kit.
+
+Copy the kit only when the work shares no context with anything else you do: a different client, a different organization, a different confidentiality boundary. A copy per project splits your roster and your records for no return, and the seats stop accumulating what they know about how you work.
+
 ## Keeping it honest over time
 
 - Run `python lint.py` before each work session or in CI. If a cap fails, trim. Never raise the cap.
